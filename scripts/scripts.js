@@ -18,17 +18,19 @@ SWApp.getOptions = () => {
 }
 
 // Function to handle the submit event and add the enemy to the roster
-SWApp.addEnemy = () => {
+SWApp.selectEnemy = () => {
     SWApp.formElement.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log("yay")
+
+        let option = document.querySelector('select')
+        console.log(option.value)
     })
 }
 
 // function to initialize our app and call our first function
 SWApp.init = () => {
     SWApp.getOptions();
-    SWApp.addEnemy();
+    SWApp.selectEnemy();
 
 }
 
