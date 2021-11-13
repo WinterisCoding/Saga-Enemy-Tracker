@@ -35,11 +35,11 @@ SWApp.displayEnemy = (id) => {
 
     enemyElement.innerHTML = `
                     <h3>${enemy.name}</h3>
-                    <button class="closeButton">X</button>
+                    <button class="closeButton">×</button>
                     <div class="info">
-                        <p>Initiative: ${enemy.initiative}</p>
-                        <p>Speed: ${enemy.speed}</p>
-                        <p>Base Attack: ${enemy.baseAttack}</p>
+                        <p>Initiative: +${enemy.initiative}</p>
+                        <p>Speed: ${enemy.speed}ft</p>
+                        <p>Base Attack: +${enemy.baseAttack}</p>
                     </div> <!-- end of info-->
                     <div class="defenses">
                         <p>Reflex: ${enemy.refDefense}</p>
@@ -49,13 +49,13 @@ SWApp.displayEnemy = (id) => {
                     <div class="attacksContainer">
                         <div class="primary attack">
                             <h4>${enemy.primaryAttack.name}</h4>
-                            <p>${enemy.primaryAttack.type}</p>
-                            <p>${enemy.primaryAttack.damage}</p>
+                            <p>Type: ${enemy.primaryAttack.type}</p>
+                            <p>Damage: ${enemy.primaryAttack.damage}</p>
                         </div> <!--end of Primary Attack-->
                         <div class="secondary attack">
                             <h4>${enemy.secondAttack.name}</h4>
-                            <p>${enemy.secondAttack.type}</p>
-                            <p>${enemy.secondAttack.damage}</p>
+                            <p>Type: ${enemy.secondAttack.type}</p>
+                            <p>Damage: ${enemy.secondAttack.damage}</p>
                         </div> <!--end of Secondary Attack-->
                     </div> <!-- end of attacks container-->
                     <div class="hpContainer">

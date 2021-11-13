@@ -9,7 +9,21 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 body {
+    font-size: 125%;
     background-color: rgb(245, 245, 245);
+}
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    font-size: 1.15rem;
 }
 
 .wrapper {
@@ -17,6 +31,10 @@ body {
     margin: 0 auto;
 }
 
+.selection {
+    margin: 0 auto;
+    text-align: center;
+}
 
 .enemyRoster li {
     display: flex;
@@ -25,27 +43,30 @@ body {
     flex-wrap: wrap;
     width: 100%;
     padding: 1%;
+    margin: 2% 0%;
     border-radius: 25px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
 }
 
 li h3 {
     width: 100%;
+    margin: .5% 1%;
 }
 
 .info,
 .defenses {
     display: flex;
+    justify-content: space-evenly;
     margin: 1%;
     width: calc(50% - 2%);
     border: 1px black solid;
-    padding: 25px;
 }
 
 .attacksContainer {
     display: flex;
-    margin: 1%;
-    width: calc(60% - 2%);
+    margin: .25% 1%;
+    width: calc(65% - 2%);
     justify-content: space-between;
     border: 1px black solid;
 }
@@ -53,7 +74,8 @@ li h3 {
 .attack {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0% 2%;
     width: 50%;
 }
 
@@ -63,15 +85,39 @@ li h3 {
 
 .hpContainer {
     display: flex;
-    margin: 1%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: .25% 1%;
     border: 1px black solid;
-    align-content: center;
+    width: calc(35% - 2%);
+}
+
+.hpContainer button {
+    display: flex;
     justify-content: center;
-    width: calc(40% - 2%);
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    border-style: none;
+    color: ivory;
+}
+
+.minus {
+    background-color: rgb(180, 15, 15);
+}
+
+.plus {
+    background-color: green;
 }
 
 .closeButton {
     position: absolute;
-    top: 5%;
-    right: 3%;
+    top: 2%;
+    right: 2%;
+    border-style: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.8rem;
 }
