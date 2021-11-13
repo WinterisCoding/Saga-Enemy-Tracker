@@ -4,6 +4,7 @@ const SWApp = {}
 
 SWApp.menu = document.getElementById('enemy');
 SWApp.formElement = document.querySelector('form')
+SWApp.roster = document.querySelector('.enemyRoster')
 SWApp.enemies = enemies;
 
 // Function to display all the enemy options for the user to select
@@ -34,11 +35,32 @@ SWApp.displayEnemy = (id) => {
 
     enemyElement.innerHTML = `
     <h3>${enemy.name}</h3>
-        <p>Hit Points: ${enemy.hp}</p> 
+        <p>Hit Points:</p>
+        <button class="plus">+</button>
+        <div class="hp" value=${enemy.hp}>${enemy.hp}</div>
+        <button class="minus">-</button> 
     `
-    let roster = document.querySelector('.enemyRoster')
-    roster.appendChild(enemyElement)
+    SWApp.roster.appendChild(enemyElement);
+    SWApp.damage();
 }
+
+// Function to manage damage/healing 
+SWApp.damage = () => {
+    let enemyElements = SWApp.roster.children;
+    for(let i = 0; i < enemyElements.length; i++) {
+        let addbutton = enemyElements[i].querySelector(".plus")
+        let health = enemyElements[i].querySelector('.hp')
+        let healthValue = parseInt(health.innerText)
+        console.log(healthValue)
+        addbutton.addEventListener('click', () => {
+            healthValue = healthValue + 1;
+            health.innerHTML = `${healthValue}`
+            
+        })
+    }
+    
+}
+
 
 // function to initialize our app and call our first function
 SWApp.init = () => {
