@@ -34,7 +34,6 @@ SWApp.displayEnemy = (id) => {
     let enemyElement = document.createElement('li');
 
     enemyElement.innerHTML = `
-    <li>
                     <h3>${enemy.name}</h3>
                     <button class="closeButton">X</button>
                     <div class="info">
@@ -65,21 +64,20 @@ SWApp.displayEnemy = (id) => {
                         <button class="minus">-</button> 
                         <button class="plus">+</button>
                     </div> <!--end of hpContainer-->
-                </li>
     `
     SWApp.roster.appendChild(enemyElement);
     SWApp.damage();
 }
 
-// Function to manage damage/healing 
+// Function to manage damage/healing and deletion
 SWApp.damage = () => {
     let enemyElements = SWApp.roster.children;
     for(let i = 0; i < enemyElements.length; i++) {
+        let closeButton = enemyElements[i].querySelector(".closeButton")
         let addbutton = enemyElements[i].querySelector(".plus")
         let minusButton = enemyElements[i].querySelector(".minus")
         let health = enemyElements[i].querySelector('.hp')
         let healthValue = parseInt(health.innerText)
-        console.log(health)
         addbutton.addEventListener('click', () => {
             healthValue = healthValue + 1;
             health.innerHTML = `${healthValue}`
@@ -88,7 +86,11 @@ SWApp.damage = () => {
             healthValue = healthValue - 1;
             health.innerHTML = `${healthValue}`
         })
-    }
+        closeButton.addEventListener('click', (e) => {
+            let x = e.target.parentElement;
+            SWApp.roster.removeChild(x)
+        })
+    } 
     
 }
 
