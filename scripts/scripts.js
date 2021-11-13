@@ -49,13 +49,17 @@ SWApp.damage = () => {
     let enemyElements = SWApp.roster.children;
     for(let i = 0; i < enemyElements.length; i++) {
         let addbutton = enemyElements[i].querySelector(".plus")
+        let minusButton = enemyElements[i].querySelector(".minus")
         let health = enemyElements[i].querySelector('.hp')
         let healthValue = parseInt(health.innerText)
         console.log(healthValue)
         addbutton.addEventListener('click', () => {
             healthValue = healthValue + 1;
             health.innerHTML = `${healthValue}`
-            
+        })
+        minusButton.addEventListener('click', () => {
+            healthValue = healthValue - 1;
+            health.innerHTML = `${healthValue}`
         })
     }
     
