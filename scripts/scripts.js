@@ -10,7 +10,7 @@ SWApp.enemies = enemies;
 // Function to display all the enemy options for the user to select
 SWApp.getOptions = () => {
     SWApp.enemies.forEach((enemy, index) => {
-        console.log(enemy)
+        // console.log(enemy)
         let option = document.createElement("option")
         option.value = index;
         option.innerText = enemy.name;
@@ -35,6 +35,14 @@ SWApp.displayEnemy = (id) => {
 
     enemyElement.innerHTML = `
                     <h3>${enemy.name}</h3>
+                    <div class="stats">
+                        <p>Str: ${enemy.stats.strength}</p>
+                        <p>Dex: ${enemy.stats.dexterity}</p>
+                        <p>Con: ${enemy.stats.constitution}</p>
+                        <p>Int: ${enemy.stats.intelligence}</p>
+                        <p>Wis: ${enemy.stats.wisdom}</p>
+                        <p>Cha: ${enemy.stats.charisma}</p>
+                    </div>
                     <button class="closeButton">×</button>
                     <div class="info">
                         <p>Initiative: +${enemy.initiative}</p>
@@ -64,7 +72,18 @@ SWApp.displayEnemy = (id) => {
                         <button class="minus">-</button> 
                         <button class="plus">+</button>
                     </div> <!--end of hpContainer-->
+                    <div class="skills">
+                    </div>
     `
+    enemy.skills.forEach((skill) => {
+        let entry = document.createElement('p')
+        entry.innerHTML = `${skill.name}: +${skill.value}`
+        
+        let skills = enemyElement.querySelector('.skills')
+        
+        skills.appendChild(entry)
+    });
+
     SWApp.roster.appendChild(enemyElement);
     SWApp.damage();
 }
