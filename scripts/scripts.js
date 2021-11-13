@@ -34,11 +34,38 @@ SWApp.displayEnemy = (id) => {
     let enemyElement = document.createElement('li');
 
     enemyElement.innerHTML = `
-    <h3>${enemy.name}</h3>
-        <p>Hit Points:</p>
-        <button class="plus">+</button>
-        <div class="hp" value=${enemy.hp}>${enemy.hp}</div>
-        <button class="minus">-</button> 
+    <li>
+                    <h3>${enemy.name}</h3>
+                    <button class="closeButton">X</button>
+                    <div class="info">
+                        <p>Initiative: ${enemy.initiative}</p>
+                        <p>Speed: ${enemy.speed}</p>
+                        <p>Base Attack: ${enemy.baseAttack}</p>
+                    </div> <!-- end of info-->
+                    <div class="defenses">
+                        <p>Reflex: ${enemy.refDefense}</p>
+                        <p>Fortitude: ${enemy.fortDefense}</p>
+                        <p>Will: ${enemy.willDefense}</p>
+                    </div><!--end of defenses-->
+                    <div class="attacksContainer">
+                        <div class="primary attack">
+                            <h4>${enemy.primaryAttack.name}</h4>
+                            <p>${enemy.primaryAttack.type}</p>
+                            <p>${enemy.primaryAttack.damage}</p>
+                        </div> <!--end of Primary Attack-->
+                        <div class="secondary attack">
+                            <h4>${enemy.secondAttack.name}</h4>
+                            <p>${enemy.secondAttack.type}</p>
+                            <p>${enemy.secondAttack.damage}</p>
+                        </div> <!--end of Secondary Attack-->
+                    </div> <!-- end of attacks container-->
+                    <div class="hpContainer">
+                        <p>Hit Points:</p>
+                        <p class="hp">${enemy.hp}</p> 
+                        <button class="minus">-</button> 
+                        <button class="plus">+</button>
+                    </div> <!--end of hpContainer-->
+                </li>
     `
     SWApp.roster.appendChild(enemyElement);
     SWApp.damage();
@@ -52,7 +79,7 @@ SWApp.damage = () => {
         let minusButton = enemyElements[i].querySelector(".minus")
         let health = enemyElements[i].querySelector('.hp')
         let healthValue = parseInt(health.innerText)
-        console.log(healthValue)
+        console.log(health)
         addbutton.addEventListener('click', () => {
             healthValue = healthValue + 1;
             health.innerHTML = `${healthValue}`

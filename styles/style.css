@@ -16,3 +16,62 @@ body {
     width: 85%;
     margin: 0 auto;
 }
+
+
+.enemyRoster li {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1%;
+    border-radius: 25px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+li h3 {
+    width: 100%;
+}
+
+.info,
+.defenses {
+    display: flex;
+    margin: 1%;
+    width: calc(50% - 2%);
+    border: 1px black solid;
+    padding: 25px;
+}
+
+.attacksContainer {
+    display: flex;
+    margin: 1%;
+    width: calc(60% - 2%);
+    justify-content: space-between;
+    border: 1px black solid;
+}
+
+.attack {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.attack h4 {
+    width: 100%;
+}
+
+.hpContainer {
+    display: flex;
+    margin: 1%;
+    border: 1px black solid;
+    align-content: center;
+    justify-content: center;
+    width: calc(40% - 2%);
+}
+
+.closeButton {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
