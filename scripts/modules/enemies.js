@@ -2,11 +2,11 @@ import {weapons} from "./weapons.js"
 import { stats } from "./stats.js";
 import { skills } from "./skills.js";
 
-const [StormtrooperSkills, HeavySkills, ScoutSkills, OfficerSkills] = skills
+const [StormtrooperSkills, HeavySkills, ScoutSkills, OfficerSkills, corSecTrooperSkills, DeathTrooperSkills] = skills
 
 
 const [blasterRifle, blasterPistol, lightRepeater, frag, empty] = weapons;
-const [StormtrooperStats, HeavyStats, ScoutStats, corSecTrooperStats, imperialOfficerStats] = stats;
+const [StormtrooperStats, HeavyStats, ScoutStats, corSecTrooperStats, imperialOfficerStats, deathTrooperStats] = stats;
 
 class Enemy {
     constructor(name, hp, initiative, speed, baseAttack, primaryAttack, secondAttack, threshold, refDefense, fortDefense, willDefense, stats, skills) {
@@ -35,10 +35,10 @@ const ScoutTrooper = new Enemy("Scout Trooper", 21, 4, 30, 4, blasterPistol, bla
 
 const imperialOfficer = new Enemy("Imperial Officer", 33, 3, 30, 6, blasterPistol, empty, 14, 15, 15, 18, imperialOfficerStats, OfficerSkills)
 
-const corSecTrooper = new Enemy("CorSec Trooper", 18, 4, 30, 3, blasterRifle, frag, 14, 16, 14, 12, corSecTrooperStats, {Athletics: 8, Perception: 10})
+const corSecTrooper = new Enemy("CorSec Trooper", 18, 4, 30, 3, blasterRifle, frag, 14, 16, 14, 12, corSecTrooperStats, corSecTrooperSkills)
 
-const deathTrooper = new Enemy()
+const deathTrooper = new Enemy("DeathTrooper", 55, 6, 30, 8, blasterRifle, frag, 22, 20, 16, 14, deathTrooperStats, DeathTrooperSkills )
 
-const enemies = [ Stormtrooper, HeavyStormtrooper, ScoutTrooper, imperialOfficer, corSecTrooper];
+const enemies = [ Stormtrooper, HeavyStormtrooper, ScoutTrooper, imperialOfficer, corSecTrooper, deathTrooper];
 
 export {enemies};
