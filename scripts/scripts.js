@@ -114,10 +114,20 @@ SWApp.damage = () => {
     }
 }
 
+// A function to add identifies to each repetition of a particular enemy.
 SWApp.counter = (enemy) => {
+    // Loop through the roster
+    // For each element with the same name assign counter value
+    // Increase the counter
     let counter = 1
     let id = enemy.name
     let roster = SWApp.roster.children;
+    roster.forEach((enemyCard) => {
+        let instance = document.querySelector('.instance')
+        instance.innerHTML = `${counter}`
+
+        counter = +1;
+    })
 }
 
 
