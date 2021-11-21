@@ -34,6 +34,7 @@ SWApp.displayEnemy = (id) => {
     let enemyElement = document.createElement('li');
 
     enemyElement.innerHTML = `
+                    <p class="instance"></p>
                     <h3>${enemy.name}</h3>
                     <div class="stats">
                         <p>Str: ${enemy.stats.strength}</p>
@@ -86,6 +87,7 @@ SWApp.displayEnemy = (id) => {
 
     SWApp.roster.appendChild(enemyElement);
     SWApp.damage();
+    SWApp.counter(enemy);
 }
 
 // Function to manage damage/healing and deletion
@@ -109,9 +111,15 @@ SWApp.damage = () => {
             let x = e.target.parentElement;
             SWApp.roster.removeChild(x)
         })
-    } 
-    
+    }
 }
+
+SWApp.counter = (enemy) => {
+    let counter = 1
+    let id = enemy.name
+    let roster = SWApp.roster.children;
+}
+
 
 
 // function to initialize our app and call our first function
